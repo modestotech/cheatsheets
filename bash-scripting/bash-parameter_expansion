@@ -1,0 +1,57 @@
+Parameter expansion 
+Used to remove a pattern, search and replace a pattern, or use a default value
+
+Remove a pattern from string 
+${var#pattern} -> Removes shortest match from start
+${var##pattern} -> Removes longest match from start
+${var#pattern} -> Removes shortest match from end
+${var#pattern} -> Removes longest match from end
+
+Example: 
+s="/Users/max/demo.txt"
+
+${s#*/}		Users/max/demo.txt
+${s##*/} 	demo.txt
+${s%.*} 	/Users/max/demo
+${s%/*} 	/Users/max
+
+Search and replace pattern
+${var/pattern/string} -> Substitutes first match 
+${var//pattern/string} -> Substitutes all matches  
+
+Anchor search pattern
+${var/#pattern/string} -> Matches beginning of the string 
+${var/%pattern/string} -> Matches end of the string
+
+Using default variable value 
+Evaluation 
+${var:-value} 	Will evaluate to "value" if var is empty or unset
+${var-value} 	Similar, but only if var is unset
+Assigning
+${var:=value} 	If var is empty or unset, will evaluate to "value" and assign it to var
+${var=value} 	Similar, but only if var is unset
+
+Example: 
+declare notesdir=${NOTESDIR:-$HOME}
+If variable NOTESDIR is empty or unset, evaluate to variable HOME, which will then be set to variable notesdir
+
+Conditional Expression Patterns 
+Inside [[]] the comparisson operators do pattern matching
+N.B. == is the same operator as = 
+Examples:
+[[  $var == pattern  ]] 	Returns true if $var matches pattern
+[[  $file == *.txt  ]] 		Returns true if $file end with .txt 
+Use quotes to force string matching, rather than pattern matching
+[[  $var == "[0-9]*"  ]] 	Returns true if $var matches "[0-9]*" 
+
+Regex pattern matching 
+=~ is used for regex pattern matching 
+Examples:
+declare -r num_re='^[0-9]+$' # r for readonly, by assigning a separate var escaping of characters etc don't have to be done in the conditional expression itself 
+if [[  $1 =~ $num_re  ]] 	Returns true if $1 matches pattern, a number at least once inside start (^) and end ($)
+
+End of options 
+Denoted by -- and means that anything afterwards won't be interpreted as option. 
+Example: 
+for i in *.txt; do touch -- $i; done
+The end of option dashes tells the touch command that now there are no more options, which permits also a file like -l.txt, that would otherwise have produced an error, as touch would have though it at option. So they should be used always when we don't have control over the contents of the variables. 

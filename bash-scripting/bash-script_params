@@ -1,0 +1,31 @@
+Special variables 
+Positional parameters 
+	Hold the n-th command line argument, $0, $1 ...
+$0
+	Holds the name of the script as it was called
+$@
+	Holds all, equivalent to $1 $2 $3 ... $N
+	When using double quotes around $@, spaces in 		params stay intact
+$*
+	Holds all, equivalent to $1 $2 $3 ... $N but the 	whole collection ends up in a single string
+	Don't work with double quote, generally, stay with $#
+	Holds the number or arguments passed 
+
+Shift
+The shift commands removes the first argument, and the following shifts ($2 -> $1, $3 -> $2, etc.), i.e. $# is lowered by 1. By giving a number (n) argument, shift removes the first n parameters. 
+
+Getopts
+Processes options that start with a dash (-x) and are a single letter, allows option that take an argument.
+Arguments for options are put in OPTARG, while OPTIND holds the index of the next argument to be processed
+If anything goes wrong, the variable NAME will hold "?" 
+In order for a mure customizable error handling, another option is to begin the option string with ":", this activates silent mode, which means that unknown options will get NAME "?" and actual option in OPTARG, and that missing option arguments get ":" in NAME and actual option in OPTARG. 
+ 
+Syntax: getopts optstring name 
+optstring
+	A list of expected options
+		"ab" lets you handle option -a and/or -b
+	Append : to options that take an argument
+		"a:b" will let a take an argument, but not b 
+name 
+	The name of a variable
+	Each time getopts is called, it'll place the next option into $name, and returns false when no options are left

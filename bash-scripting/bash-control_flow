@@ -1,0 +1,36 @@
+while test; do
+	# code to be repeated until test returns false
+done
+
+until test; do
+	# code to be repeated until test returns false 
+done
+
+Classic for loop
+for VAR in WORDS; do
+	# code to be repeated
+done
+
+C-style for loop
+for (( INIT; TEST; UPDATE )); do
+	# loop code
+done
+
+break and continue are used to override the normal control flow
+
+case WORD in
+	PATTERN1)
+		# code for pattern 1
+	PATTERN2)
+		# code for pattern 2
+	...
+	PATTERNn)
+		# code for pattern n
+esac
+
+Compound commands 
+{ cmd1; cmd2; cmd3; } # Executes next always 
+
+Ampersand and two pipes work as shorthand if statements 
+{ cmd1 && cmd2 && cmd3; } # Executes next if the previous reported success
+{ cmd1 || cmd2 || cmd3; } # Executes next if the previous reported failure

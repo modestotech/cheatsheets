@@ -1,0 +1,52 @@
+printf
+A more customizable print solution than echo 
+printf "p%st\n" a e i o u
+printf "|%15s |%15s |%15s |%15s |\n" $(ls)
+printf -v greeting "Hey, %s, how are you?\n" $USER
+The -v option saves the output to a variable (greeting in this case)
+
+read
+Reads input into variable, if no variable name is given, $REPLY is used 
+-r 
+	Should genereally be used, to avoid unpredictable and weird results 
+-n 1
+	Waiting for one character, maybe y or n
+-s
+	Suppresses output, good to have for passwords, for example
+
+read a b; echo $a; echo $b
+	Takes user input and puts everything up to the first space in $a, and everything 	after the first space in $b 
+IFS=: read a b; echo $a; echo $b
+	The same as above, but the IFS (Input Field Separator) variable is here used to change the separator to :, instead of white space. 
+
+Standard streams 
+0: Standard Input (stdin)
+	/dev/stdin
+1: Standard Output (stout)
+	/dev/stout
+2: Standard Error (stderr)
+	/dev/stderr
+trashcan: 
+	dev/null
+
+Redirect a specific stream with N>
+	cmd 2> /dev/null
+		Discards all errors 
+Redirect to a specific stream with >&N
+	>&2 
+		Sends output to stderr
+	2>&1
+		Redirects stderr into stdout
+	cmd > logfile 2>&1
+		Sends both error and output to a single file, by passing 1 (default to 			logfile, and stream 2 to stream 1)
+
+echo "No input, note wasn't saved" 1>&2
+	Passes the echo command's output in stream 1 to stream 2
+
+if type "$scriptname" > /dev/null 2>&1; then
+	echo "There is already a command with name ${scriptname}"
+fi
+	Takes output from stream 1 and passes it into /dev/null and then takes stream 2 	and passes it into stream 1
+
+
+	

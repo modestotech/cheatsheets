@@ -1,0 +1,24 @@
+Handled as a shell script inside the main shell script 
+
+Functions
+- Declare 
+- Use 
+- Return data
+- Export
+
+sum() {
+  echo $(( $1 + $2 ))
+}
+
+Another option is to use the return keyword, but that's not a good option in Bash as it can only hold exit status (value between 0-255, where "0" means success). When using return the value returned ends up in $?. 
+
+Redirection of function body output (into standard error in this case)
+function () {
+} >&2
+
+Common pitfall: a command in a pipeline runs in a subshell
+
+Here documents
+cat << TAG
+Text to use as input goes here
+TAG

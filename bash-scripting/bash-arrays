@@ -1,0 +1,20 @@
+Declaration
+Simple
+declare -a x
+Declaration with elements 
+x=(1 2 3 a b c) 
+
+Storing a value 
+x[0]="some"
+x[1]="word"
+
+Retrieving a value 
+${x[0]}
+${x[1]}
+${x[@]} or ${x[*]} returns all values as single items respectively a long string 
+
+Special functions
+${#array[@]}
+	Count the number of elements in $array
+${!array[@]}
+	Returns the indices in $array

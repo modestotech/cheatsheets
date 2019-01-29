@@ -1,0 +1,24 @@
+Options to run code 
+x Put hash-bang in the file, set executable permissions, and run as command (bash starts as a subprocess)
+x bash myscript runs without any permissions, permits to for example do bash -x myscript for debugging 
+x import code in the current shell process, source myscript (or .myscript) 
+
+Run in background 
+myscript & disconnects the process from the interactive session (puts it in the background)
+nohup myscript &, the nohup command will keep the script running even when the terminal session has ben exited
+nice myscript gives the script lower priority, so that it doesn't slow down the system 
+All together: nohup nice myscript & -> run myscript even when the terminal session is exited, with low priority and in the background
+
+Redirecting I/O for the whole script 
+exec >logfile -> Will change stdout for the rest of the script to logfile 
+
+Run script at specific times 
+at command for running script at a specific time and cron for running according to a schedule. On Mac there's also launchd. 
+
+Customize bash behaviour (should not be done in production code)
+set -x 	prints each command with its arguments as it's expected
+set -u 	gives and error when using an unitialized variable and exits script
+set -n read command but don't execute
+set -v print each command as it is read
+set -e exits script whenever a command fails 
+... and many more 

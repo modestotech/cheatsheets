@@ -1,0 +1,19 @@
+Advanced stuff with variables... 
+
+declare -i numVar
+Now $num can only hold numbers and arithmetic operations are possible, anything that's not a number will be saved as 0. 
+Unset with declare +i numVar
+
+C-like syntax for calculations 
+let command and ((..)) are equivalent, but the ((..)) permits spaces 
+	let n=100/2
+	((++x))
+	((p=x/100))
+$((..)) is a substitutation, not a command, passes the output of the result of what happens inside the parentheses as a variable 
+
+Another option for declare is -r (read only)
+
+Variables are local to script by default
+By exporting them they get available to subprocesses, these two declaration options are equivalent: 
+export var="value"
+declare -x var="value"
