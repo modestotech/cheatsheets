@@ -70,6 +70,12 @@ Made by Max Modesto Wallin
   + Traverses through the jumplist (previous)
 * `<C-t>`
   + Jump to `count` older entry in the tag stack
+* `v`
+  + `v` toggles inclusiveness. 
+  + Example "Hello World" when being at the end of the line
+       - `dT<Space>` would result in "Hello d"
+       - `dvT<Space>` would result in "Hello "
+       - This works because T is `exclusive`, see :h t
 
 ## Insertion and delete 
 ### Insert 
@@ -119,6 +125,22 @@ Made by Max Modesto Wallin
 * `<C-x><C-]>`
   + Tag
 
+## Manipulating text
+ * `~`
+   + Toggle case of the character under the cursor
+ * `g~~`
+   + Toggle case of whole line
+ * `g~{motion}`
+   + Toggle case of the motion
+ * `gU{motion}`
+   + Change the motion to uppercase
+ * `gUU`
+   + Change the current line to uppercase
+ * `gu{motion}`
+   + Change the motion to lowercase
+ * `guu`
+   + Change the current line to lowercase
+
 ## Find and replace 
 ### In file
 * Find
@@ -157,6 +179,8 @@ Made by Max Modesto Wallin
 
 ## Macros
 ### Execution 
+* `@a`
+  + Executes macro a on current line
 * `:5,10norm!@a`
   + Executes macro a on lines 5-10@
 * `:g/pattern/norm!@a`
@@ -178,8 +202,12 @@ If the opening mark is used, whitespace is added
   + Delete surrounding "
 * `cs])`
   + Change surrounding ] to )
+* `cs]<q>`
+  + Change surrounding ] to )
 * `ysw(`
-  + Add `(` around word and trims white space if an
+  + Add `(` around word and add white space 
+* `yss)`
+  + Wraps the whole line with `(`
 
 ### vim-unimpaired
 * `{count}ö<space>`
