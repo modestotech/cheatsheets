@@ -1,7 +1,7 @@
 # Bash cheatsheet
 Made by Max Modesto Wallin
 
-## Keyboard shortcuts 
+## Keyboard shortcuts
 * `CTRL-E`
   + End of line
 * `CTRL-U`
@@ -9,7 +9,7 @@ Made by Max Modesto Wallin
 * `CTRL-W`
   + Delete word backwards
 * `CTRL-Y`
-  + Paste deleted string 
+  + Paste deleted string
 
 ## Repetition of arguments
 * `!$`

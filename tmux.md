@@ -1,7 +1,7 @@
 # Tmux cheatsheet
 Made by Max Modesto Wallin
 
-## Session 
+## Session
 ### Create a new session
 `tmux new -s session-name # Named session`
 `tmux new # Unnamed session`
@@ -20,7 +20,7 @@ Made by Max Modesto Wallin
 `tmux kill-session #0 # Kills session with id 0`
 `tmux kill-session -t session-name # Kills session named session-name`
 
-## Management 
+## Management
 `?` # Show all key mappings
 
 ### Session management
@@ -30,7 +30,7 @@ Made by Max Modesto Wallin
 `k` # Change to the next session
 `d` # Detach from the current session
 
-### Windows 
+### Windows
 `c` # Create a new window
 `,` # Rename the current window
 `w` # List windows

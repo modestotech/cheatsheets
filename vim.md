@@ -13,14 +13,14 @@ Made by Max Modesto Wallin
 * c\_ (ex command line)
   + *:h c\_CTRL-R*
 
-## Navigation 
-### Vertical navigation 
+## Navigation
+### Vertical navigation
 * `<C-E>`
   + Scroll window down
 * `<C-Y>`
   + Scroll window up
 * `<C-F>`
-  + Scroll one page down 
+  + Scroll one page down
 * `<C-B>`
   + Scroll one page up
 * `H`
@@ -59,11 +59,11 @@ Made by Max Modesto Wallin
 * `a`
   + All (including motion's surroundings)
 * `i`
-  + In (inside motion) 
+  + In (inside motion)
 
 ### Special
 * `g { movement }`
-  + Navigates wrapped text 
+  + Navigates wrapped text
 * `<C-i>`
   + Traverses through the jumplist (next)
 * `<C-o>`
@@ -71,21 +71,21 @@ Made by Max Modesto Wallin
 * `<C-t>`
   + Jump to `count` older entry in the tag stack
 * `v`
-  + `v` toggles inclusiveness. 
+  + `v` toggles inclusiveness.
   + Example "Hello World" when being at the end of the line
        - `dT<Space>` would result in "Hello d"
        - `dvT<Space>` would result in "Hello "
        - This works because T is `exclusive`, see :h t
 
-## Insertion and delete 
-### Insert 
+## Insertion and delete
+### Insert
 * `I`
   + Put cursor in beginning of line and enter insert mode
 * `A`
-  + Put cursor in end of line and enter insert mode 
+  + Put cursor in end of line and enter insert mode
 
 ### Delete
-* `D` 
+* `D`
   + Delete until end of line
 * `C`
   + Delete until end of line and enter insert mode
@@ -102,24 +102,24 @@ Made by Max Modesto Wallin
 * `<C-O>`
   + Leaves input mode for one command
 
-### Ex mode completion 
+### Ex mode completion
 * `<e>`
   + Close popup
 * `<C-x><C-n>`
-  + Current file (next) 
+  + Current file (next)
 * `<C-x><C-p>`
-  + Current file (previous) 
+  + Current file (previous)
 * `<C-x><C-f>`
-  + Filename 
+  + Filename
 * `<C-x><C-n>`
   + Completion of anything specified by context, set with complete
   + *Explanation:*
       - . (this file)
       - w (other windows)
-      - b (other buffers) 
-      - u (unloaded other buffers) 
-      - t (tags file) 
-      - t (included files, such as imports and language specifics) 
+      - b (other buffers)
+      - u (unloaded other buffers)
+      - t (tags file)
+      - t (included files, such as imports and language specifics)
 * `<C-x><C-l>`
   + Line (context aware)
 * `<C-x><C-]>`
@@ -141,7 +141,7 @@ Made by Max Modesto Wallin
  * `guu`
    + Change the current line to lowercase
 
-## Find and replace 
+## Find and replace
 ### In file
 * Find
   + Type `\` for forward search or `?` for backward search
@@ -156,7 +156,7 @@ Made by Max Modesto Wallin
   + Use find command with regex expression and tab through the results, `:find *expression<TAB>`
 * Find inside files
   + Using grep command
-      - Examples: 
+      - Examples:
           * `:grep -Fr '.ad' */.css`
               + Finds `class` ad in css files
               + \-F to pass literal string, else it'd be interpreted as regex
@@ -171,14 +171,14 @@ Made by Max Modesto Wallin
       - `:copen` and `:cclose` are used to open/close the quickfix list
 * Replace inside files (refactor)
   + Use Ack to grep inside project and populate the results in the quickfix list
-  + Use `:cdo` to execute a command on the entries in the quickfix list 
+  + Use `:cdo` to execute a command on the entries in the quickfix list
   + `update` is like write, but only updates the buffer that's modified'
-  + Example: 
+  + Example:
       + :Ack foo
       + :cdo s/foo/bar/g | update
 
 ## Macros
-### Execution 
+### Execution
 * `@a`
   + Executes macro a on current line
 * `:5,10norm!@a`
@@ -196,7 +196,7 @@ Made by Max Modesto Wallin
   + Comment/uncomment motion
 
 ### vim-surround
-If the opening mark is used, whitespace is added 
+If the opening mark is used, whitespace is added
 
 * `ds"`
   + Delete surrounding "
@@ -205,7 +205,7 @@ If the opening mark is used, whitespace is added
 * `cs]<q>`
   + Change surrounding ] to )
 * `ysw(`
-  + Add `(` around word and add white space 
+  + Add `(` around word and add white space
 * `yss)`
   + Wraps the whole line with `(`
 
